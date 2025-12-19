@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Formulaire NASOM’ID Smart</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+  padding: 20px;
+}
+.container {
+  max-width: 700px;
+  background: #ffffff;
+  padding: 35px 40px;
+  margin: auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+.container:hover {
+  transform: scale(1.01);
+}
+h2 {
+  text-align: center;
+  margin-bottom: 5px;
+  color: #0b3d91;
+  font-weight: 700;
+}
+.subtitle {
+  text-align: center;
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 12px;
+}
+form label {
+  display: block;
+  margin-top: 14px;
+  font-weight: 500;
+  color: #0b3d91;
+}
+form input, form select, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+form input:focus, form select:focus, form textarea:focus {
+  border-color: #0b5ed7;
+  box-shadow: 0 0 5px rgba(11,94,215,0.3);
+}
+form input[type="file"] {
+  padding: 6px;
+}
+.payment-box {
+  background-color: #e0f7fa;
+  border-left: 6px solid #00796b;
+  padding: 18px;
+  margin-top: 22px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #00796b;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+.checkbox-container {
+  background-color: #fff3e0;
+  padding: 14px;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+button {
+  margin-top: 18px;
+  padding: 14px;
+  width: 100%;
+  background-color: #0b5ed7;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+button:hover {
+  background-color: #084298;
+  transform: scale(1.02);
+}
+.confirmation {
+  margin-top: 18px;
+  font-style: italic;
+  color: #2e7d32;
+  font-weight: 500;
+  text-align: center;
+}
+.motivation {
+  margin-top: 18px;
+  background-color: #e8f5e9;
+  padding: 15px;
+  border-radius: 10px;
+  color: #2e7d32;
+  font-style: italic;
+  text-align: center;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>NASOM’ID Smart</h2>
+  <p class="subtitle">CARTE DE RÉCUPÉRATION D'OBJETS PERDUS</p>
+  <p class="subtitle">Formulaire d’obtention de la carte NASOM’ID Smart</p>
+
+  <form id="nasomidForm">
+
+    <!-- Informations du propriétaire -->
+    <label>Nom :</label>
+    <input type="text" name="nom" required>
+    
+    <label>Postnom :</label>
+    <input type="text" name="postnom" required>
+    
+    <label>Prénom(s) :</label>
+    <input type="text" name="prenom" required>
+    
+    <label>Sexe :</label>
+    <select name="sexe" required>
+      <option value="">Sélectionnez</option>
+      <option value="M">M</option>
+      <option value="F">F</option>
+    </select>
+    
+    <label>Date de naissance :</label>
+    <input type="date" name="dob" required>
+    
+    <label>Lieu de naissance :</label>
+    <input type="text" name="lieu_naissance" required>
+
+    <!-- Coordonnées -->
+    <label>Numéro de téléphone principal :</label>
+    <input type="text" name="tel_principal" required>
+    
+    <label>Numéro d’urgence :</label>
+    <input type="text" name="tel_urgence" required>
+    
+    <label>Adresse (Avenue, Quartier, Commune, Ville) :</label>
+    <input type="text" name="adresse" required>
+    
+    <label>E-mail (facultatif) :</label>
+    <input type="email" name="email">
+
+    <!-- Identification de la carte -->
+    <label>Numéro ID NASOM’ID Smart :</label>
+    <input type="text" name="num_id" value="RÉSERVÉE À NASOM’ID" readonly>
+    
+    <label>Type de carte demandée :</label>
+    <select name="type_carte" required>
+      <option value="">Sélectionnez</option>
+      <option value="Personnelle">Personnelle</option>
+      <option value="Objets perdus">Objets perdus</option>
+      <option value="Autre">Autre</option>
+    </select>
+
+    <!-- Objets associés -->
+    <label>Objets associés à la carte :</label>
+    <input type="checkbox" name="objets" value="Carte d’identité"> Carte d’identité
+    <input type="checkbox" name="objets" value="Carte bancaire"> Carte bancaire
+    <input type="checkbox" name="objets" value="Téléphone"> Téléphone
+    <input type="checkbox" name="objets" value="Clés"> Clés
+    <input type="checkbox" name="objets" value="Sac/Portefeuille"> Sac / Portefeuille
+    <input type="checkbox" name="objets" value="Autre"> Autre
+
+    <!-- Personne à contacter en urgence -->
+    <label>Personne à contacter en cas d’urgence :</label>
+    <input type="text" name="contact_nom" placeholder="Nom complet" required>
+    <input type="text" name="contact_relation" placeholder="Lien avec le propriétaire" required>
+    <input type="text" name="contact_tel" placeholder="Numéro de téléphone" required>
+
+    <!-- Photo passeport -->
+    <label>Déposer votre photo passeport :</label>
+    <input type="file" name="photo" accept="image/*" required>
+
+    <!-- Paiement -->
+    <div class="payment-box">
+      Frais de la carte : 10 USD <br>
+      Paiement via Airtel Money : +243991433618<br>
+      <input type="checkbox" name="paiement_confirme" required> J'atteste avoir effectué le paiement
+    
+
+
+    <!-- Politique de confidentialité -->
+    <div class="checkbox-container">
+      <input type="checkbox" name="accept" required>
+      J’accepte la <a href="politique.html" target="_blank">politique de confidentialité</a> et les <a href="conditions.html" target="_blank">conditions d’utilisation</a>
+    </div>
+
+    <button type="submit">Envoyer la demande</button>
+    
+    <!-- Message motivationnel -->
+    <div class="motivation">
+      ⚡ Bravo ! En remplissant ce formulaire, vous contribuez à un acte citoyen responsable. Chaque carte remise renforce la confiance et la solidarité. Votre engagement change notre société !
+
+Afin de finaliser le traitement et la production de votre carte NASOM’ID Smart, nous vous prions de bien vouloir :
+
+• Transmettre à nouveau votre photo passeport en pièce jointe à l’adresse électronique indiquée ;
+• Joindre également la capture d’écran de la transaction relative aux frais de la carte.
+
+Ces éléments sont à envoyer exclusivement à l’adresse suivante :
+nasomasmart558@gmail.com
+
+Cette procédure nous permet de vérifier les informations, d’assurer la conformité du dossier et de garantir un service fiable, sécurisé et professionnel.
+
+Nous vous remercions sincèrement pour votre confiance et votre collaboration.
+
+NASOM’ID Smart – Pour une restitution responsable, une information claire et une société plus solidaire.
+
+
+
+    </div>
+
+    <div id="confirmation" class="confirmation"></div>
+  </form>
+</div>
+
+<script>
+const form = document.getElementById('nasomidForm');
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const reference = 'NASOMID-' + Date.now();
+  const formData = new FormData(form);
+  let body = '';
+  formData.forEach((value, key) => {
+    body += key + ': ' + value + '\n';
+  });
+  body += 'Référence : ' + reference + '\n';
+
+  window.location.href = `mailto:nasomasmart558@gmail.com?subject=Demande NASOM'ID Smart&body=${encodeURIComponent(body)}`;
+
+  document.getElementById('confirmation').innerText = `Merci ! Votre demande a été envoyée. Référence : ${reference}`;
+  form.reset();
+});
+</script><!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>À propos – NASOM’ID Smart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background:#f4f6f8;
+            margin:0;
+            padding:0;
+            color:#333;
+        }
+        header{
+            background:#0b5ed7;
+            color:white;
+            padding:25px;
+            text-align:center;
+        }
+        .container{
+            max-width:900px;
+            margin:30px auto;
+            background:white;
+            padding:30px;
+            border-radius:8px;
+            box-shadow:0 0 10px rgba(0,0,0,0.1);
+        }
+        h2{
+            color:#0b5ed7;
+            margin-top:30px;
+        }
+        p{
+            line-height:1.7;
+            font-size:15px;
+        }
+        ul{
+            margin-left:20px;
+        }
+        li{
+            margin-bottom:8px;
+        }
+        .highlight{
+            background:#eef4ff;
+            padding:15px;
+            border-left:4px solid #0b5ed7;
+            margin:20px 0;
+        }
+        footer{
+            text-align:center;
+            font-size:13px;
+            color:#777;
+            margin-top:40px;
+        }
+        hr{
+            border:none;
+            border-top:1px solid #ddd;
+            margin:35px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>NASOM’ID Smart</h1>
+    <p>Carte intelligente d’objets perdus</p>
+</header>
+
+<div class="container">
+
+    <h2>Présentation du projet</h2>
+    <p>
+        <strong>NASOM’ID Smart</strong> est une initiative citoyenne et technologique
+        conçue pour faciliter la restitution rapide, sécurisée et responsable
+        des objets perdus grâce à l’utilisation des codes QR et des outils numériques modernes.
+    </p>
+
+    <p>
+        Le projet vise à instaurer une culture d’honnêteté, de solidarité et de
+        responsabilité collective en République Démocratique du Congo,
+        tout en protégeant les informations personnelles du propriétaire.
+    </p>
+
+    <h2>Pourquoi NASOM’ID Smart ?</h2>
+    <p>
+        Chaque jour, de nombreuses personnes perdent des objets importants :
+        cartes d’identité, téléphones, portefeuilles, clés ou documents essentiels.
+        NASOM’ID Smart apporte une solution simple, efficace et humaine à ce problème.
+    </p>
+
+    <div class="highlight">
+        Lorsqu’un objet est retrouvé, il suffit de scanner le code QR présent sur la carte
+        pour accéder à une page sécurisée permettant de contacter le propriétaire
+        ou la personne d’urgence.
+    </div>
+
+    <h2>Objectifs du projet</h2>
+    <ul>
+        <li>Faciliter la restitution des objets perdus</li>
+        <li>Réduire les pertes définitives de documents importants</li>
+        <li>Encourager l’honnêteté et la solidarité citoyenne</li>
+        <li>Utiliser la technologie au service du bien commun</li>
+        <li>Protéger les données personnelles des utilisateurs</li>
+    </ul>
+
+    <h2>Fonctionnement</h2>
+    <p>
+        Le propriétaire remplit un formulaire officiel de demande de carte NASOM’ID Smart.
+        Après validation, une carte unique avec un identifiant et un code QR est générée.
+    </p>
+
+    <p>
+        En cas de perte, la personne qui retrouve l’objet scanne le code QR,
+        accède à une page explicative et peut envoyer sa localisation
+        ou contacter directement les numéros autorisés.
+    </p>
+
+    <h2>Valeurs du projet</h2>
+    <ul>
+        <li>Honnêteté</li>
+        <li>Responsabilité</li>
+        <li>Solidarité</li>
+        <li>Innovation utile</li>
+        <li>Respect de la vie privée</li>
+    </ul>
+
+    <hr>
+
+    <h2 style="text-align:center;">Auteur du projet</h2>
+
+    <p style="text-align:center; font-weight:bold; font-size:16px;">
+        Emmanuel NDONGO
+    </p>
+
+    <p style="text-align:center;">
+        Initiateur et concepteur de <strong>NASOM’ID Smart</strong><br>
+        Passionné par la technologie, l’innovation citoyenne
+        et les solutions numériques au service de la société.
+    </p>
+
+    <p style="text-align:center;">
+        📧 Contact : 
+        <a href="mailto:nasomasmart558@gmail.com">
+            nasomasmart558@gmail.com
+        </a>
+    </p>
+
+    <div class="highlight" style="text-align:center;">
+        <em>
+            « Un peuple non informé est sous-développé.  
+            Une information claire, un développement rapide. » (DG)
+        </em>
+    </div>
+
+    <footer>
+        © 2025 – NASOM’ID Smart | Initiative citoyenne – RDC
+    </footer>
+
+</div>
+
+</body>
+</html>
+
+
+</body>
+</html>
